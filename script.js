@@ -12,29 +12,35 @@ app.controller("flicker", function($http,$scope,$scope, $log, $timeout,$anchorSc
     var lon = '122.3950';
     var url = base + api_key +'&per_page=50&page='+page+'&format=json&nojsoncallback=1&lat='+ lat +'&lon=' + lon ;
     // var url = base + api_key +'&per_page=50&page='+page+'&format=json&nojsoncallback=1';
-    $log.log(url);
+    //$log.log(url);
 
-
+      //  fet images with default lat long
     $http.get(url).success(function(data){
        $scope.photos = data.photos.photo;
        $scope.pages = data.photos.pages;
 
     });
+
+    // for pagination
     $scope.next = function(){
         page++;
         var url = base + api_key +'&per_page=50&page='+page+'&format=json&nojsoncallback=1&lat='+ lat +'&lon=' + lon ;
-        $log.log(url);
+        //$log.log(url);
         $http.get(url).success(function(data){
            $scope.photos = data.photos.photo;
            $scope.pages = data.photos.pages;
             $('.photo').animate().scrollLeft(0);
-
         });
-    }
+    },
+
+    // For map
+
     $scope.map = {center: {latitude: 43.14351298090284, longitude: -100.84718750000002 }, zoom: 4};
     $scope.options = {scrollwheel: false};
     $scope.coordsUpdates = 0;
     $scope.dynamicMoveCtr = 0;
+
+    // For marker
     $scope.marker = {
      id: 0,
      coords: {
@@ -42,15 +48,20 @@ app.controller("flicker", function($http,$scope,$scope, $log, $timeout,$anchorSc
        longitude: -100.84718750000002
      },
      options: { draggable: true },
+     //  Marker events
      events: {
        dragend: function (marker, eventName, args) {
-         $log.log('marker dragend');
-         var lat = marker.getPosition().lat();
-         var lon = marker.getPosition().lng();
-         $log.log(lat);
-         $log.log(lon);
+         //$log.log('marker dragend');
+         var lat = marker.getPosition().lat(); //check for latest lat
+         var lon = marker.getPosition().lng(); //check for latest long
+         //$log.log(lat);
+         //$log.log(lon);
+
+         //Update url based on lat lang
          var url = base + api_key +'&per_page=50&page='+page+'&format=json&nojsoncallback=1&lat='+ lat +'&lon=' + lon ;
-         $log.log(url);
+        //  $log.log(url);
+
+        //  again fetch images with updated lat lang
          $http.get(url).success(function(data){
               $scope.photos = data.photos.photo;
          });

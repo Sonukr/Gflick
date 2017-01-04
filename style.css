@@ -3,55 +3,55 @@
   padding: 0;
 }
 html, body, #map_canvas {
-           height: 100%;
-           width: 100%;
-           margin: 0px;
-       }
+     height: 100%;
+     width: 100%;
+     margin: 0px;
+ }
 
-       #map_canvas {
-           position: relative;
-       }
+ #map_canvas {
+     position: relative;
+ }
 
-       .angular-google-map-container {
-           position: absolute;
-           top: 0;
-           bottom: 0;
-           right: 0;
-           left: 0;
-       }
+ .angular-google-map-container {
+     position: absolute;
+     top: 0;
+     bottom: 0;
+     right: 0;
+     left: 0;
+ }
 
-       .photo{
-         position: absolute;
-         bottom:0;
-         max-width: 100%;
-         overflow-x: scroll;
-         z-index: 9;
-         margin: 0;
-         padding: 0;
-         background: rgba(0, 0, 0, 0.16);
-       }
+ .photo{
+   position: absolute;
+   bottom:0;
+   max-width: 100%;
+   overflow-x: scroll;
+   z-index: 9;
+   margin: 0;
+   padding: 0;
+   background: rgba(0, 0, 0, 0.16);
+ }
 
-       .photo__wrapper{
-         width: calc(50*225px);
-         height: 237px;
-         padding: 12px;
-         overflow: hidden;
-       }
-       .photo__item{
-             float: left;
-       }
+ .photo__wrapper{
+   width: calc(50*225px);
+   height: 237px;
+   padding: 12px;
+   overflow: hidden;
+ }
+ .photo__item{
+       float: left;
+ }
 
-       .photo__item img {
-           vertical-align: middle;
-           min-height: 220px;
-           max-height: 220px;
-           min-width: 240px;
-           max-width: 240px;
-           padding: 5px;
-       }
-      .next-btn{
-        margin-top: 100px;
-      }
-       .gmnoprint.gm-bundled-control.gm-bundled-control-on-bottom {
-    top: 0;
+ .photo__item img {
+     vertical-align: middle;
+     min-height: 220px;
+     max-height: 220px;
+     min-width: 240px;
+     max-width: 240px;
+     padding: 5px;
+ }
+.next-btn{
+  margin-top: 100px;
+}
+ .gmnoprint.gm-bundled-control.gm-bundled-control-on-bottom {
+top: 0;
 }
