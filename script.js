@@ -5,17 +5,18 @@ var app = angular.module("Gflick", ['uiGmapgoogle-maps']);
 app.controller("flicker", function($http,$scope,$scope, $log, $timeout,$anchorScroll,$location){
     var page = '10';
     var base = 'https://api.flickr.com/services/rest/?method=flickr.photos.getRecent&api_key=';
-    var api_key = '2d18b4b58397e0f73968ee0755a79a5c';
+    var api_key = '9f1f9a38b0d421ccb8367fd44a74772e';
     var auth_token = '72157677278492840-779808da05e88571';
     var api_sig = '4cd9fd8791897029628b06ebe838f837';
     var lat = '37.7994';
     var lon = '122.3950';
     var url = base + api_key +'&per_page=50&page='+page+'&format=json&nojsoncallback=1&lat='+ lat +'&lon=' + lon ;
     // var url = base + api_key +'&per_page=50&page='+page+'&format=json&nojsoncallback=1';
-    //$log.log(url);
+    $log.log(url);
 
       //  fet images with default lat long
     $http.get(url).success(function(data){
+        $log.log(data);
        $scope.photos = data.photos.photo;
        $scope.pages = data.photos.pages;
 
